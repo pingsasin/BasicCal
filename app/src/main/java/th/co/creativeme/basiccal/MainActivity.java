@@ -2,81 +2,117 @@ package th.co.creativeme.basiccal;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
-    int num1;
-    int num2;
-    double sum;
-
-
-    private EditText mInput1;
-    private EditText mInput2;
-    private ImageView mActionCal;
-    private EditText mOutput;
-    private ImageView mEqualBtn;
-    private ImageView mPlusIconBtn;
-    private ImageView mMinusIconBtn;
-    private ImageView mMultiplyIconBtn;
-    private ImageView mDivideIconBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bindWidgets();
-        setEvent();
-    }
-    private void bindWidgets() {
-        mInput1 = (EditText) findViewById(R.id.input1);
-        mInput2 = (EditText) findViewById(R.id.input2);
-        mActionCal = (ImageView) findViewById(R.id.actionCal);
-        mOutput = (EditText) findViewById(R.id.output);
-        mEqualBtn = (ImageView) findViewById(R.id.equalBtn);
-        mPlusIconBtn = (ImageView) findViewById(R.id.plusBtn);
-        mMinusIconBtn = (ImageView) findViewById(R.id.minusBtn);
-        mMultiplyIconBtn = (ImageView) findViewById(R.id.multiplyBtn);
-        mDivideIconBtn = (ImageView) findViewById(R.id.divideBtn);
 
-    }
+        final EditText mInput1 = (EditText) findViewById(R.id.input1);
+        final EditText mInput2 = (EditText) findViewById(R.id.input2);
+        final TextView mOutPut = (TextView) findViewById(R.id.output);
+        final Button mPlusBtn = (Button) findViewById(R.id.plusBtn);
+        Button mMinusBtn = (Button) findViewById(R.id.minusBtn);
+        Button mMultiplyBtn = (Button) findViewById(R.id.multiplyBtn);
+        Button mDivideBtn = (Button) findViewById(R.id.divideBtn);
+        //Button mEqualBtn = (Button) findViewById(R.id.equalBtn);
 
-    private void setEvent() {
+        final TextView mActionCal = (TextView) findViewById(R.id.actionCal);
 
-        num1 = Integer.parseInt(mInput1.getText().toString());
-        num2 = Integer.parseInt(mInput2.getText().toString());
 
-        mPlusIconBtn.setOnClickListener(new View.OnClickListener() {
+       /** if (TextUtils.isEmpty(mInput1.getText().toString())
+                || TextUtils.isEmpty(mInput2.getText().toString())) {
+            return;
+        }*/
+
+        mPlusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sum = num1 + num2;
-                mOutput.setText(num1 + " + " + num2 + " = " + sum);
+                if (TextUtils.isEmpty(mInput1.getText().toString())|| TextUtils.isEmpty(mInput2.getText().toString())) {
+                    return;
+                }
+                double num1 = Double.parseDouble(mInput1.getText().toString());
+                double num2 = Double.parseDouble(mInput2.getText().toString());
+                double sum = num1 + num2;
+                mActionCal.setText("+");
+                mOutPut.setText(String.valueOf(sum));
+
             }
         });
 
-        mMinusIconBtn.setOnClickListener(new View.OnClickListener() {
+        mMinusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sum = num1 - num2;
-                mOutput.setText(num1 + " - " + num2 + " = " + sum);
+                if (TextUtils.isEmpty(mInput1.getText().toString()) || TextUtils.isEmpty(mInput2.getText().toString())) {
+                    return;
+                }
+                double num1 = Double.parseDouble(mInput1.getText().toString());
+                double num2 = Double.parseDouble(mInput2.getText().toString());
+                double sum = num1 - num2;
+                mActionCal.setText("-");
+                mOutPut.setText(String.valueOf(sum));
             }
         });
-        mMultiplyIconBtn.setOnClickListener(new View.OnClickListener() {
+        mMultiplyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sum = num1 * num2;
-                mOutput.setText(num1 + " * " + num2 + " = " + sum);
+                if (TextUtils.isEmpty(mInput1.getText().toString())|| TextUtils.isEmpty(mInput2.getText().toString())) {
+                    return;
+                }
+                double num1 = Double.parseDouble(mInput1.getText().toString());
+                double num2 = Double.parseDouble(mInput2.getText().toString());
+                double sum = num1 * num2;
+                mActionCal.setText("*");
+                mOutPut.setText(String.valueOf(sum));
             }
         });
-        mDivideIconBtn.setOnClickListener(new View.OnClickListener() {
+        mDivideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sum = num1 / num2;
-                mOutput.setText(num1 + " / " + num2 + " = " + sum);
+                if (TextUtils.isEmpty(mInput1.getText().toString())|| TextUtils.isEmpty(mInput2.getText().toString())) {
+                    return;
+                }
+                double num1 = Double.parseDouble(mInput1.getText().toString());
+                double num2 = Double.parseDouble(mInput2.getText().toString());
+                double sum = num1 / num2;
+                mActionCal.setText("/");
+                mOutPut.setText(String.valueOf(sum));
             }
         });
+        /**mEqualBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double num1 = Double.parseDouble(mInput1.getText().toString());
+                double num2 = Double.parseDouble(mInput2.getText().toString());
+                switch (view.getId()){
+                    case R.id.plusBtn:
+                        double sum = num1 + num2;
+                        mOutPut.setText(String.valueOf(sum));
+                        break;
+                    case R.id.minusBtn:
+                        sum = num1 - num2;
+                        mOutPut.setText(String.valueOf(sum));
+                        break;
+                    case R.id.multiplyBtn:
+                        sum = num1 * num2;
+                        mOutPut.setText(String.valueOf(sum));
+                        break;
+                    case R.id.divideBtn:
+                        sum = num1 / num2;
+                        mOutPut.setText(String.valueOf(sum));
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });*/
     }
 
 }
