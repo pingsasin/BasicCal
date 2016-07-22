@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Button mMinusBtn = (Button) findViewById(R.id.minusBtn);
         Button mMultiplyBtn = (Button) findViewById(R.id.multiplyBtn);
         Button mDivideBtn = (Button) findViewById(R.id.divideBtn);
+        //Button mEqualBtn = (Button) findViewById(R.id.equalBtn);
         Button mClearBtn = (Button) findViewById(R.id.clearBtn);
 
         final TextView mActionCal = (TextView) findViewById(R.id.actionCal);
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 double sum = num1 + num2;
                 mActionCal.setText("+");
                 mOutPut.setText(String.valueOf(sum));
-
+                Toast.makeText(MainActivity.this, "Answered", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 double sum = num1 - num2;
                 mActionCal.setText("-");
                 mOutPut.setText(String.valueOf(sum));
+                Toast.makeText(MainActivity.this, "Answered", Toast.LENGTH_SHORT).show();
             }
         });
         mMultiplyBtn.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 double sum = num1 * num2;
                 mActionCal.setText("*");
                 mOutPut.setText(String.valueOf(sum));
+                Toast.makeText(MainActivity.this, "Answered", Toast.LENGTH_SHORT).show();
             }
         });
         mDivideBtn.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 double sum = num1 / num2;
                 mActionCal.setText("/");
                 mOutPut.setText(String.valueOf(sum));
+                Toast.makeText(MainActivity.this, "Answered", Toast.LENGTH_SHORT).show();
             }
         });
         mClearBtn.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                 mInput1.setText("");
                 mInput2.setText("");
                 mOutPut.setText("");
+                mActionCal.setText("");
+                Toast.makeText(MainActivity.this, "Cleared", Toast.LENGTH_SHORT).show();
             }
         });
         /**mEqualBtn.setOnClickListener(new View.OnClickListener() {
