@@ -116,11 +116,12 @@
 
         <Button
             android:id="@+id/equalBtn"
-            android:layout_width="50dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_weight="5"
             android:text="="
             android:textSize="17pt"
-            android:background="#400000ff"
+            android:background="#300000ff"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             />
@@ -128,7 +129,20 @@
             android:id="@+id/output"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="2"
             android:layout_marginLeft="10dp"
+
+            />
+        <Button
+            android:id="@+id/clearBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="5"
+            android:text="C"
+            android:textSize="17pt"
+            android:background="#90ff0000"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
             />
     </LinearLayout>
 

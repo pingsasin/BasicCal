@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Button mMinusBtn = (Button) findViewById(R.id.minusBtn);
         Button mMultiplyBtn = (Button) findViewById(R.id.multiplyBtn);
         Button mDivideBtn = (Button) findViewById(R.id.divideBtn);
-        //Button mEqualBtn = (Button) findViewById(R.id.equalBtn);
+        Button mClearBtn = (Button) findViewById(R.id.clearBtn);
 
         final TextView mActionCal = (TextView) findViewById(R.id.actionCal);
 
@@ -84,6 +84,14 @@ public class MainActivity extends AppCompatActivity {
                 double sum = num1 / num2;
                 mActionCal.setText("/");
                 mOutPut.setText(String.valueOf(sum));
+            }
+        });
+        mClearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mInput1.setText("");
+                mInput2.setText("");
+                mOutPut.setText("");
             }
         });
         /**mEqualBtn.setOnClickListener(new View.OnClickListener() {
