@@ -122,7 +122,7 @@
             android:text="="
             android:textSize="17pt"
             android:background="#300000ff"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             />
         <EditText
@@ -140,8 +140,10 @@
             android:layout_weight="5"
             android:text="C"
             android:textSize="17pt"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
             android:background="#90ff0000"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center"
             android:layout_marginRight="10dp"
             />
     </LinearLayout>
